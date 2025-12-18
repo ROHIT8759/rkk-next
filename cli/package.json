@@ -1,0 +1,52 @@
+{
+  "name": "create-next-rkk",
+  "version": "1.0.0",
+  "description": "CLI tool to create Next.js apps with rkk-next pre-configured",
+  "author": "Rohit Kumar Kundu",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "bin": {
+    "create-next-rkk": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ROHIT8759/rkk-next.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/ROHIT8759/rkk-next/issues"
+  },
+  "homepage": "https://github.com/ROHIT8759/rkk-next#readme",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "nextjs",
+    "cli",
+    "create-app",
+    "rkk-next",
+    "scaffold",
+    "generator",
+    "boilerplate"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
