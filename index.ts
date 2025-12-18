@@ -2,6 +2,7 @@
 export * from "./seo/MetaManager";
 export * from "./seo/JsonLd";
 export * from "./seo/defaults";
+export * from "./seo/appMetadata";
 
 // Routing
 export * from "./routing/SmartLink";
@@ -12,3 +13,7 @@ export * from "./routing/RouteObserver";
 export * from "./performance/ImageOptimizer";
 export * from "./performance/Lazy";
 export * from "./performance/cacheHeaders";
+export * from "./performance/securityHeaders";
+
+// Analytics
+export * from "./analytics/webVitals";

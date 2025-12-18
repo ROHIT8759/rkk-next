@@ -1,0 +1,28 @@
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Examples (don't publish)
+examples/
+
+# Development
+*.log
+.DS_Store
+.env*
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+coverage/
+
+# Misc
+.vscode/
+.idea/
+*.swp
+*.swo

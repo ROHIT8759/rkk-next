@@ -1,27 +1,49 @@
 {
   "name": "rkk-next",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "SEO, routing and performance optimization SDK for Next.js",
   "author": "Rohit Kumar Kundu",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ROHIT8759/rkk-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ROHIT8759/rkk-next/issues"
+  },
+  "homepage": "https://github.com/ROHIT8759/rkk-next#readme",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Tests coming soon\" && exit 0"
   },
   "peerDependencies": {
     "next": ">=12",
     "react": ">=17",
     "react-dom": ">=17"
   },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "typescript": "^5.3.3"
+  },
   "keywords": [
     "nextjs",
     "seo",
     "performance",
     "routing",
+    "optimization",
+    "web-vitals",
     "sdk",
-    "rkk-next"
+    "rkk-next",
+    "react",
+    "meta-tags",
+    "json-ld",
+    "prefetch"
   ]
 }

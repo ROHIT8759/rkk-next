@@ -1,42 +1,41 @@
-🚀 rkk-next
+# 🚀 rkk-next
 
-rkk-next is an opinionated Next.js SDK that helps you build SEO-optimized, fast, and scalable applications with better routing, caching, and performance defaults.
+> **SEO, Performance & Routing SDK for Next.js**
 
-Built for Next.js Pages Router & App Router
-Ideal for startups, landing pages, Web3 dashboards, hackathons
+[![npm version](https://img.shields.io/npm/v/rkk-next.svg)](https://www.npmjs.com/package/rkk-next)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
-✨ Features
-🔍 SEO Optimization
+rkk-next is an opinionated Next.js SDK that helps you build **SEO-optimized**, **blazing fast**, and **scalable** applications with better routing, caching, and performance defaults.
 
-Centralized meta management
+✨ **Built for Next.js Pages Router & App Router**  
+🎯 **Ideal for:** Startups, Landing Pages, Web3 Dashboards, SaaS, Hackathons
 
-OpenGraph & Twitter Cards
+## ✨ Features
 
-JSON-LD (Schema.org)
+### 🔍 SEO Optimization
+- ✅ Centralized meta management (OpenGraph, Twitter Cards)
+- ✅ JSON-LD structured data (Schema.org)
+- ✅ Canonical URL handling
+- ✅ SEO-safe defaults & best practices
 
-Canonical URL handling
+### ⚡ Routing Optimization
+- ✅ Intelligent route prefetching (hover-based)
+- ✅ Network-aware prefetching
+- ✅ Route change observer with performance metrics
+- ✅ Analytics-ready routing events
 
-SEO-safe defaults
+### 🚀 Performance Boost
+- ✅ Lazy loading for heavy components
+- ✅ Optimized image wrapper (SEO + performance)
+- ✅ Cache & CDN header presets
+- ✅ Edge-friendly caching strategies
+- ✅ Security headers included
 
-⚡ Routing Optimization
-
-Intelligent route prefetching
-
-Hover-based prefetch intent
-
-Route change observer
-
-Analytics-ready routing events
-
-🚀 Performance Boost
-
-Lazy loading for heavy components
-
-Optimized image wrapper
-
-Cache & CDN header presets
-
-Edge-friendly caching strategies
+### 📊 Analytics
+- ✅ Web Vitals tracking (LCP, FID, CLS, etc.)
+- ✅ Route navigation analytics
+- ✅ Performance monitoring
 
 📦 Installation
 npm install rkk-next
@@ -150,14 +149,23 @@ module.exports = {
   },
 };
 
-🧩 Supported Next.js Versions
-Feature	Pages Router	App Router
-MetaManager	✅	✅
-JsonLd	✅	✅
-SmartLink	✅	⚠️ (use only for internal links)
-Routing Observer	✅	⚠️
-ImageOptimizer	✅	✅
-Lazy Loading	✅	✅
+## 🧩 Supported Next.js Versions
+
+| Feature           | Pages Router | App Router |
+|-------------------|--------------|------------|
+| MetaManager       | ✅          | ✅ (via generateAppMetadata) |
+| JsonLd            | ✅          | ✅         |
+| SmartLink         | ✅          | ⚠️ (use for internal links only) |
+| Routing Observer  | ✅          | ⚠️ (Pages Router recommended) |
+| OptimizedImage    | ✅          | ✅         |
+| Lazy Loading      | ✅          | ✅         |
+| Cache Headers     | ✅          | ✅         |
+| Web Vitals        | ✅          | ✅         |
+
+**Minimum Requirements:**
+- Next.js >= 12.0.0
+- React >= 17.0.0
+- TypeScript >= 4.5.0 (optional but recommended)
 🛠️ Best Practices
 
 Use MetaManager on every page
@@ -170,33 +178,58 @@ Enable cache headers for static assets
 
 Always provide alt text for images
 
-🧑‍💻 Author
+## 🧑‍💻 Author
 
-Rohit Kumar Kundu
-B.Tech CSE | Web3 & Next.js Developer
+**Rohit Kumar Kundu**  
+🎓 B.Tech CSE | Web3 & Next.js Developer  
+🔗 [GitHub](https://github.com/ROHIT8759) | [LinkedIn](https://linkedin.com/in/rohit-kumar-kundu)
 
-📄 License
+## 📚 Documentation
 
-MIT License © 2025
-Free to use, modify, and distribute.
+- 📖 [Full Documentation](./docs/DOCS.md)
+- 🚀 [Quick Start Guide](./docs/QUICKSTART.md)
+- 📝 [API Reference](./docs/DOCS.md#api-reference)
+- 💡 [Examples](./examples/)
 
-⭐ Support the Project
+## 🤝 Contributing
 
-If you like rkk-next:
+We welcome contributions! See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for guidelines.
 
-⭐ Star the repo
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-🐛 Report issues
+## 🚀 Next Steps
 
-🤝 Contribute PRs
+- [ ] Add App Router `generateMetadata` helper
+- [ ] Expand Web Vitals analytics integration
+- [ ] Create demo app showcase
+- [ ] Add Lighthouse CI integration
+- [ ] Video tutorials & guides
 
-🚀 Next Steps
+## 📄 License
 
-Add App Router generateMetadata
+MIT License © 2025 [Rohit Kumar Kundu](https://github.com/ROHIT8759)
 
-Web Vitals analytics
+Free to use, modify, and distribute. See [LICENSE](./LICENSE) for details.
 
-Example demo app
+## ⭐ Support the Project
+
+If you find rkk-next helpful:
+
+- ⭐ **Star the repo** on GitHub
+- 🐛 **Report issues** to help improve the SDK
+- 🤝 **Contribute** with PRs and feature ideas
+- 📢 **Share** with other Next.js developers
+- 💬 **Join discussions** and share your use cases
+
+---
+
+**Made with ❤️ for the Next.js community**
+
+[Get Started](./docs/QUICKSTART.md) | [Documentation](./docs/DOCS.md) | [Examples](./examples/) | [Report Issue](https://github.com/ROHIT8759/rkk-next/issues)
 
 NPM publish
 
