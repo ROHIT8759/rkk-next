@@ -1,5 +1,14 @@
-# Build output
-dist/
+# Source files (only publish dist/)
+seo/
+routing/
+performance/
+analytics/
+examples/
+*.ts
+*.tsx
+!*.d.ts
+
+# Build artifacts
 build/
 .next/
 out/
@@ -7,19 +16,34 @@ out/
 # Dependencies
 node_modules/
 
-# Examples (don't publish)
-examples/
-
-# Development
+# Development files
 *.log
 .DS_Store
 .env*
+tsconfig.json
+next.config.js
 
 # TypeScript
 *.tsbuildinfo
 
 # Testing
 coverage/
+TESTING.md
+
+# Documentation (except README)
+DOCS.md
+QUICKSTART.md
+CONTRIBUTING.md
+PUBLISHING.md
+STRUCTURE.md
+SECURITY.md
+NPM-PUBLISH-CHECKLIST.md
+CHANGELOG.md
+
+# Git files
+.git/
+.github/
+.gitignore
 
 # Misc
 .vscode/
