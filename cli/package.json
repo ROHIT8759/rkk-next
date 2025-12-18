@@ -1,12 +1,12 @@
 {
   "name": "create-next-rkk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool to create Next.js apps with rkk-next pre-configured",
   "author": "Rohit Kumar Kundu",
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "create-next-rkk": "./dist/index.js"
+    "create-next-rkk": "dist/index.js"
   },
   "files": [
     "dist",
