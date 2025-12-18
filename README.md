@@ -1,216 +1,380 @@
+<div align="center">
+
 # 🚀 rkk-next
 
-> **SEO, Performance & Routing SDK for Next.js**
+**Production-ready SEO, Performance & Routing SDK for Next.js**
 
-[![npm version](https://img.shields.io/npm/v/rkk-next.svg)](https://www.npmjs.com/package/rkk-next)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![npm version](https://img.shields.io/npm/v/rkk-next.svg?style=flat-square)](https://www.npmjs.com/package/rkk-next)
+[![npm downloads](https://img.shields.io/npm/dm/rkk-next.svg?style=flat-square)](https://www.npmjs.com/package/rkk-next)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-rkk-next is an opinionated Next.js SDK that helps you build **SEO-optimized**, **blazing fast**, and **scalable** applications with better routing, caching, and performance defaults.
+**Enterprise-grade toolkit for building SEO-optimized, lightning-fast Next.js applications**
 
-✨ **Built for Next.js Pages Router & App Router**  
-🎯 **Ideal for:** Startups, Landing Pages, Web3 Dashboards, SaaS, Hackathons
+[Get Started](#-quick-start) · [Documentation](./docs/DOCS.md) · [Examples](./examples/) · [Report Bug](https://github.com/ROHIT8759/rkk-next/issues)
 
-## ✨ Features
+</div>
 
-### 🔍 SEO Optimization
-- ✅ Centralized meta management (OpenGraph, Twitter Cards)
-- ✅ JSON-LD structured data (Schema.org)
-- ✅ Canonical URL handling
-- ✅ SEO-safe defaults & best practices
+---
 
-### ⚡ Routing Optimization
-- ✅ Intelligent route prefetching (hover-based)
-- ✅ Network-aware prefetching
-- ✅ Route change observer with performance metrics
-- ✅ Analytics-ready routing events
+## 🎯 Why rkk-next?
 
-### 🚀 Performance Boost
-- ✅ Lazy loading for heavy components
-- ✅ Optimized image wrapper (SEO + performance)
-- ✅ Cache & CDN header presets
-- ✅ Edge-friendly caching strategies
-- ✅ Security headers included
+Building performant, SEO-optimized Next.js applications requires juggling multiple concerns: meta tags, structured data, route prefetching, image optimization, and caching strategies. **rkk-next** provides production-tested solutions out of the box.
 
-### 📊 Analytics
-- ✅ Web Vitals tracking (LCP, FID, CLS, etc.)
-- ✅ Route navigation analytics
-- ✅ Performance monitoring
+**Perfect for:**
 
-📦 Installation
+- 🚀 Startups needing rapid development
+- 💼 Enterprise applications requiring SEO excellence
+- 🎨 Marketing websites and landing pages
+- 🌐 Web3 dashboards and SaaS platforms
+- ⚡ Performance-critical applications
+
+## ✨ Key Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔍 **SEO Excellence**
+
+- Comprehensive meta tag management
+- OpenGraph & Twitter Cards
+- JSON-LD structured data (Schema.org)
+- Automatic canonical URLs
+- Server-side rendering optimized
+
+</td>
+<td width="50%">
+
+### ⚡ **Performance First**
+
+- Intelligent route prefetching
+- Network-aware optimizations
+- Lazy loading for heavy components
+- CDN & edge caching strategies
+- Built-in security headers
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📊 **Analytics Ready**
+
+- Core Web Vitals tracking
+- Route navigation metrics
+- Performance monitoring
+- Custom event tracking
+- Production-ready insights
+
+</td>
+<td width="50%">
+
+### 🎨 **Developer Experience**
+
+- Full TypeScript support
+- Zero configuration needed
+- Pages Router & App Router
+- Comprehensive documentation
+- Active maintenance
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+### Create New Project (Recommended)
+
+Get started instantly with our CLI tool:
+
+```bash
+npx create-next-rkk@latest my-app
+cd my-app
+npm run dev
+```
+
+### Add to Existing Project
+
+Install into your existing Next.js application:
+
+```bash
 npm install rkk-next
-
-
-or
-
+# or
 yarn add rkk-next
+# or
+pnpm add rkk-next
+```
 
-🧠 Basic Usage
-1️⃣ SEO Meta Manager
+---
+
+## 📖 Usage Examples
+
+### SEO Meta Management
+
+Centralize your SEO configuration with type-safe components:
+
+```tsx
 import { MetaManager } from "rkk-next";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <MetaManager
         title="Home | My App"
-        description="SEO optimized Next.js app using rkk-next"
-        keywords="Next.js, SEO, Performance"
-        image="/og.png"
+        description="Production-ready Next.js application with enterprise SEO"
+        keywords="Next.js, React, SEO, Performance"
+        image="https://myapp.com/og-image.png"
         siteName="My App"
+        twitterHandle="myhandle"
       />
 
-      <h1>Hello World</h1>
+      <main>{/* Your content */}</main>
     </>
   );
 }
+```
 
-2️⃣ JSON-LD (Schema.org)
+### Structured Data (JSON-LD)
+
+Improve search engine understanding with structured data:
+
+```tsx
 import { JsonLd } from "rkk-next";
 
-<JsonLd
-  type="WebSite"
-  data={{
-    name: "My App",
-    url: "https://myapp.com",
-  }}
-/>
+export default function ArticlePage() {
+  return (
+    <>
+      <JsonLd
+        type="Article"
+        data={{
+          headline: "Advanced Next.js SEO Techniques",
+          image: "https://myapp.com/article.jpg",
+          datePublished: "2025-12-18T08:00:00.000Z",
+          author: {
+            "@type": "Person",
+            name: "John Doe",
+          },
+        }}
+      />
 
-🔗 Smart Routing
-SmartLink (Enhanced next/link)
-import { SmartLink } from "rkk-next";
+      <article>{/* Article content */}</article>
+    </>
+  );
+}
+```
 
-<SmartLink href="/dashboard">
-  Go to Dashboard
-</SmartLink>
+### Smart Routing & Prefetching
 
+Enhance navigation performance with intelligent prefetching:
 
-✔ Prefetch on hover
-✔ Network-aware
-✔ SEO-safe <a> tag
+```tsx
+import { SmartLink, observeRoutes } from "rkk-next";
+import { useEffect } from "react";
 
-Route Observer
-import { observeRoutes } from "rkk-next";
+export default function Navigation() {
+  useEffect(() => {
+    // Track route changes for analytics
+    const unsubscribe = observeRoutes((event) => {
+      analytics.track("page_view", {
+        url: event.url,
+        duration: event.duration,
+      });
+    });
 
-observeRoutes((event) => {
-  console.log(event.url, event.duration);
-});
+    return unsubscribe;
+  }, []);
 
-🖼️ Image Optimization
+  return (
+    <nav>
+      <SmartLink href="/products" prefetchOnHover>
+        Products
+      </SmartLink>
+    </nav>
+  );
+}
+```
+
+### Optimized Images
+
+Ensure SEO-compliant and performant images:
+
+```tsx
 import { OptimizedImage } from "rkk-next";
 
-<OptimizedImage
-  src="/hero.png"
-  alt="Landing page hero image"
-  width={1200}
-  height={630}
-  priority
-/>
-
-
-✔ SEO-safe alt enforcement
-✔ Responsive sizes
-✔ LCP optimized
-
-💤 Lazy Loading
-import { lazyImport } from "rkk-next";
-
-const Chart = lazyImport(() => import("./Chart"));
-
-export default function Dashboard() {
-  return <Chart />;
+export default function Hero() {
+  return (
+    <OptimizedImage
+      src="/hero-banner.jpg"
+      alt="Professional hero banner showcasing our product"
+      width={1920}
+      height={1080}
+      priority // For above-the-fold images
+      quality={85}
+    />
+  );
 }
+```
 
-🧠 Intelligent Prefetching
-import { prefetchRoute, isFastConnection } from "rkk-next";
+### Code Splitting & Lazy Loading
 
-prefetchRoute("/dashboard", {
-  condition: isFastConnection,
+Reduce initial bundle size with intelligent lazy loading:
+
+```tsx
+import { lazyImport, DefaultLoader } from "rkk-next";
+
+// Heavy component loaded on-demand
+const AnalyticsDashboard = lazyImport(() => import("./AnalyticsDashboard"), {
+  loading: DefaultLoader,
+  ssr: false,
+  delay: 100,
 });
 
-🗄️ Cache Headers
+export default function Dashboard() {
+  return (
+    <main>
+      <h1>Dashboard</h1>
+      <AnalyticsDashboard />
+    </main>
+  );
+}
+```
 
-Use directly inside next.config.js:
+### Performance-Optimized Caching
 
+Configure production-grade caching in `next.config.js`:
+
+```javascript
 const {
   LONG_TERM_CACHE,
   EDGE_CACHE,
   NO_CACHE,
+  SECURITY_HEADERS,
   applyCache,
-} = require("rkk-next");
+} = require("rkk-next/performance/cacheHeaders");
 
 module.exports = {
   async headers() {
     return [
+      // Static assets: aggressive caching
       applyCache("/_next/static/:path*", LONG_TERM_CACHE),
+      applyCache("/images/:path*", LONG_TERM_CACHE),
+
+      // API routes: edge caching
       applyCache("/api/public/:path*", EDGE_CACHE),
+
+      // User-specific pages: no cache
       applyCache("/dashboard/:path*", NO_CACHE),
+
+      // Security headers for all routes
+      {
+        source: "/:path*",
+        headers: SECURITY_HEADERS,
+      },
     ];
   },
 };
+```
 
-## 🧩 Supported Next.js Versions
+---
 
-| Feature           | Pages Router | App Router |
-|-------------------|--------------|------------|
-| MetaManager       | ✅          | ✅ (via generateAppMetadata) |
-| JsonLd            | ✅          | ✅         |
-| SmartLink         | ✅          | ⚠️ (use for internal links only) |
-| Routing Observer  | ✅          | ⚠️ (Pages Router recommended) |
-| OptimizedImage    | ✅          | ✅         |
-| Lazy Loading      | ✅          | ✅         |
-| Cache Headers     | ✅          | ✅         |
-| Web Vitals        | ✅          | ✅         |
+## 🧩 Compatibility Matrix
 
-**Minimum Requirements:**
-- Next.js >= 12.0.0
-- React >= 17.0.0
-- TypeScript >= 4.5.0 (optional but recommended)
-🛠️ Best Practices
+| Feature        | Pages Router | App Router | Notes                                 |
+| -------------- | :----------: | :--------: | ------------------------------------- |
+| MetaManager    |      ✅      |     ✅     | App Router uses `generateAppMetadata` |
+| JsonLd         |      ✅      |     ✅     | Works with both routers               |
+| SmartLink      |      ✅      |     ⚠️     | Recommended for Pages Router          |
+| RouteObserver  |      ✅      |     ⚠️     | Pages Router only                     |
+| OptimizedImage |      ✅      |     ✅     | Full support both routers             |
+| Lazy Loading   |      ✅      |     ✅     | Dynamic imports supported             |
+| Cache Headers  |      ✅      |     ✅     | Universal support                     |
+| Web Vitals     |      ✅      |     ✅     | Analytics integration                 |
 
-Use MetaManager on every page
+**System Requirements:**
 
-Avoid lazy loading LCP elements
+- Next.js `>= 12.0.0`
+- React `>= 17.0.0`
+- Node.js `>= 16.0.0`
+- TypeScript `>= 4.5.0` (optional but recommended)
 
-Use SmartLink for internal navigation
+---
 
-Enable cache headers for static assets
+## 🎓 Learn More
 
-Always provide alt text for images
+### 📚 Documentation
+
+- [Complete Documentation](./docs/DOCS.md) - Comprehensive API reference
+- [Quick Start Guide](./docs/QUICKSTART.md) - Get running in 5 minutes
+- [Migration Guide](./docs/DOCS.md) - Upgrade from other solutions
+- [Best Practices](./docs/DOCS.md#best-practices) - Production tips
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Whether it's:
+
+- 🐛 Bug reports and fixes
+- ✨ New features and enhancements
+- 📖 Documentation improvements
+- 💡 Feature suggestions
+
+**Getting Started:**
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes with clear commit messages
+4. Write or update tests as needed
+5. Submit a pull request
+
+See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 📄 License
+
+MIT License © 2025 [Rohit Kumar Kundu](https://github.com/ROHIT8759)
+
+Free for commercial and personal use. See [LICENSE](./LICENSE) for details.
+
+---
+
+## 🙏 Support & Community
+
+### Get Help
+
+- 📖 [Documentation](./docs/DOCS.md)
+- 💬 [GitHub Discussions](https://github.com/ROHIT8759/rkk-next/discussions)
+- 🐛 [Issue Tracker](https://github.com/ROHIT8759/rkk-next/issues)
+
+### Show Your Support
+
+If rkk-next helps your project:
+
+- ⭐ Star the repository
+- 🐦 Share on social media
+- 📝 Write about your experience
+- 🤝 Contribute back to the project
+
+---
 
 ## 🧑‍💻 Author
 
 **Rohit Kumar Kundu**  
-🎓 B.Tech CSE | Web3 & Next.js Developer  
-🔗 [GitHub](https://github.com/ROHIT8759) | [LinkedIn](https://linkedin.com/in/rohit-kumar-kundu)
+Full-Stack Developer | Next.js & Web3 Specialist
 
-## 📚 Documentation
+🔗 [GitHub](https://github.com/ROHIT8759) · [LinkedIn](https://linkedin.com/in/rohit-kumar-kundu) · [Portfolio](https://rohitkundu.dev)
 
-- 📖 [Full Documentation](./docs/DOCS.md)
-- 🚀 [Quick Start Guide](./docs/QUICKSTART.md)
-- 📝 [API Reference](./docs/DOCS.md#api-reference)
-- 💡 [Examples](./examples/)
+---
 
-## 🤝 Contributing
+<div align="center">
 
-We welcome contributions! See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for guidelines.
+**Built with ❤️ for the Next.js community**
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+[Get Started](./docs/QUICKSTART.md) · [Documentation](./docs/DOCS.md) · [Examples](./examples/) · [Changelog](./CHANGELOG.md)
 
-## 🚀 Next Steps
-
-- [ ] Add App Router `generateMetadata` helper
-- [ ] Expand Web Vitals analytics integration
-- [ ] Create demo app showcase
-- [ ] Add Lighthouse CI integration
-- [ ] Video tutorials & guides
-
-## 📄 License
-
+</div>
 MIT License © 2025 [Rohit Kumar Kundu](https://github.com/ROHIT8759)
 
 Free to use, modify, and distribute. See [LICENSE](./LICENSE) for details.
