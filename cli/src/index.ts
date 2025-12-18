@@ -63,19 +63,11 @@ program
     const spinner = ora('Creating Next.js application...').start();
 
     try {
-      const nextFlags = [
-        '--use-npm',
-        answers.typescript ? '--typescript' : '--javascript',
-        answers.router === 'app' ? '--app' : '',
-        '--no-tailwind',
-        '--eslint',
-        '--src-dir',
-      ].filter(Boolean).join(' ');
+      const createNextAppCmd = answers.typescript
+        ? `npx create-next-app@latest ${targetDir} --typescript --eslint --no-tailwind --src-dir --import-alias "@/*"`
+        : `npx create-next-app@latest ${targetDir} --javascript --eslint --no-tailwind --src-dir --import-alias "@/*"`;
 
-      execSync(
-        `npx create-next-app@latest ${targetDir} ${nextFlags} --yes`,
-        { stdio: 'pipe' }
-      );
+      execSync(createNextAppCmd, { stdio: 'inherit' });
 
       spinner.succeed('Next.js application created!');
 
@@ -83,8 +75,10 @@ program
       if (answers.installDeps) {
         spinner.start('Installing rkk-next...');
         process.chdir(targetDir);
-        execSync('npm install rkk-next', { stdio: 'pipe' });
+        execSync('npm install rkk-next', { stdio: 'inherit' });
         spinner.succeed('rkk-next installed!');
+      } else {
+        process.chdir(targetDir);
       }
 
       // Step 3: Setup template files
