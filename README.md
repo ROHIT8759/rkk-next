@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🚀 rkk-next
+<img src="./assets/logo.svg" alt="rkk-next logo" width="120" height="120" />
+
+# rkk-next
 
 **Production-ready SEO, Performance & Routing SDK for Next.js**
 

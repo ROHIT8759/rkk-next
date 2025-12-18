@@ -1,0 +1,23 @@
+<svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo circle -->
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Circle -->
+  <circle cx="50" cy="50" r="45" fill="url(#logoGrad)"/>
+  
+  <!-- RKK in circle -->
+  <text x="50" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">RKK</text>
+  <text x="50" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#fff" text-anchor="middle" opacity="0.9">NEXT</text>
+  
+  <!-- Text logo -->
+  <text x="110" y="55" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#667eea">rkk</text>
+  <text x="195" y="55" font-family="Arial, sans-serif" font-size="48" font-weight="300" fill="#764ba2">-next</text>
+  
+  <!-- Tagline -->
+  <text x="110" y="75" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#666" opacity="0.8">Next.js SEO & Performance SDK</text>
+</svg>
