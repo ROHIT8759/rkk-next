@@ -58,32 +58,51 @@ program
     ]);
 
     const targetDir = projectName || answers.projectName;
+    const projectPath = path.join(process.cwd(), targetDir);
 
     // Step 1: Create Next.js app
     const spinner = ora('Creating Next.js application...').start();
 
     try {
-      const createNextAppCmd = answers.typescript
-        ? `npx create-next-app@latest ${targetDir} --typescript --eslint --no-tailwind --src-dir --import-alias "@/*"`
-        : `npx create-next-app@latest ${targetDir} --javascript --eslint --no-tailwind --src-dir --import-alias "@/*"`;
+      // Use create-next-app with all options specified to avoid prompts
+      const createNextAppCmd = [
+        'npx',
+        'create-next-app@latest',
+        targetDir,
+        answers.typescript ? '--typescript' : '--js',
+        '--eslint',
+        '--no-tailwind',
+        '--src-dir',
+        '--app',
+        '--import-alias', '@/*',
+        '--no-git'
+      ].join(' ');
 
-      execSync(createNextAppCmd, { stdio: 'inherit' });
+      execSync(createNextAppCmd, { 
+        stdio: 'inherit',
+        cwd: process.cwd()
+      });
 
       spinner.succeed('Next.js application created!');
+
+      // Verify directory exists
+      if (!fs.existsSync(projectPath)) {
+        throw new Error(`Project directory ${targetDir} was not created`);
+      }
 
       // Step 2: Install rkk-next
       if (answers.installDeps) {
         spinner.start('Installing rkk-next...');
-        process.chdir(targetDir);
-        execSync('npm install rkk-next', { stdio: 'inherit' });
+        execSync('npm install rkk-next', { 
+          stdio: 'inherit',
+          cwd: projectPath
+        });
         spinner.succeed('rkk-next installed!');
-      } else {
-        process.chdir(targetDir);
       }
 
       // Step 3: Setup template files
       spinner.start('Setting up rkk-next configuration...');
-      setupTemplateFiles(targetDir, answers.router, answers.typescript);
+      setupTemplateFiles(projectPath, answers.router, answers.typescript);
       spinner.succeed('Configuration complete!');
 
       // Success message

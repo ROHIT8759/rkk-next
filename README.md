@@ -10,10 +10,12 @@
 [![npm downloads](https://img.shields.io/npm/dm/rkk-next.svg?style=flat-square)](https://www.npmjs.com/package/rkk-next)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/Tests-97%20Passing-success.svg?style=flat-square)](https://github.com/ROHIT8759/rkk-next)
+[![Coverage](https://img.shields.io/badge/Coverage-85%25-green.svg?style=flat-square)](https://github.com/ROHIT8759/rkk-next)
 
 **Enterprise-grade toolkit for building SEO-optimized, lightning-fast Next.js applications**
 
-[Get Started](#-quick-start) · [Documentation](./docs/DOCS.md) · [Examples](./examples/) · [Report Bug](https://github.com/ROHIT8759/rkk-next/issues)
+[Get Started](#-quick-start) · [Project Structure](./docs/PROJECT_STRUCTURE.md) · [Backend Docs](./docs/BACKEND.md) · [Examples](./examples/) · [Report Bug](https://github.com/ROHIT8759/rkk-next/issues)
 
 </div>
 
@@ -70,6 +72,19 @@ Building performant, SEO-optimized Next.js applications requires juggling multip
 - Production-ready insights
 
 </td>
+<td width="50%">
+
+### ⚡ **Backend Utilities**
+
+- Express-like middleware
+- API route optimization
+- Rate limiting & CORS
+- Response caching
+- Request validation
+
+</td>
+</tr>
+<tr>
 <td width="50%">
 
 ### 🎨 **Developer Experience**
@@ -280,6 +295,73 @@ module.exports = {
 };
 ```
 
+### Backend API Utilities
+
+Build robust Next.js API routes with Express-like middleware:
+
+```typescript
+// pages/api/users/[id].ts
+import { NextApiRequest, NextApiResponse } from "next";
+import {
+  composeMiddleware,
+  cors,
+  rateLimit,
+  validateRequest,
+  logger,
+  errorHandler,
+  cacheResponse,
+  jsonResponse,
+  allowMethods,
+} from "rkk-next";
+
+// Compose middleware chain
+const handler = composeMiddleware(
+  cors({ origin: "https://yourdomain.com" }),
+  rateLimit({ maxRequests: 100, windowMs: 60000 }),
+  logger(),
+  allowMethods(["GET", "PUT", "DELETE"]),
+  cacheResponse({ ttl: 300 }), // Cache for 5 minutes
+  validateRequest((req) => {
+    if (req.method === "PUT" && !req.body.name) {
+      return "Name is required";
+    }
+  }),
+  errorHandler()
+)(async (req: NextApiRequest, res: NextApiResponse) => {
+  const { id } = req.query;
+
+  // Your API logic
+  const user = await getUserById(id as string);
+
+  return jsonResponse(res, {
+    success: true,
+    data: user,
+  });
+});
+
+export default handler;
+```
+
+**Server-side caching with automatic TTL:**
+
+```typescript
+import { cache, memoize } from "rkk-next";
+
+// Cache expensive operations
+const expensiveQuery = memoize(
+  async (userId: string) => {
+    return await database.query(/* ... */);
+  },
+  { ttl: 600 } // 10 minutes
+);
+
+// Manual cache control
+cache.set("user:123", userData, 300);
+const cachedUser = cache.get("user:123");
+```
+
+See [Backend Utilities Documentation](docs/BACKEND.md) for complete API reference.
+
 ---
 
 ## 🧩 Compatibility Matrix
@@ -294,6 +376,7 @@ module.exports = {
 | Lazy Loading   |      ✅      |     ✅     | Dynamic imports supported             |
 | Cache Headers  |      ✅      |     ✅     | Universal support                     |
 | Web Vitals     |      ✅      |     ✅     | Analytics integration                 |
+| Backend Utils  |      ✅      |     ✅     | API routes middleware                 |
 
 **System Requirements:**
 
@@ -330,7 +413,27 @@ We welcome contributions from the community! Whether it's:
 4. Write or update tests as needed
 5. Submit a pull request
 
-See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 📁 Project Structure
+
+```
+rkk-next/
+├── src/                    # Source code
+│   ├── seo/               # SEO utilities
+│   ├── routing/           # Routing optimization
+│   ├── performance/       # Performance tools
+│   ├── analytics/         # Web Vitals tracking
+│   └── backend/           # API utilities
+├── __tests__/             # Test suites (97 tests)
+├── docs/                  # Documentation
+├── examples/              # Usage examples
+└── cli/                   # CLI tool (create-next-rkk)
+```
+
+📖 See [Project Structure Documentation](./docs/PROJECT_STRUCTURE.md) for complete details.
 
 ---
 

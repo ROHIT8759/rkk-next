@@ -1,13 +1,15 @@
 {
   "name": "rkk-next",
-  "version": "1.0.0",
-  "description": "SEO, routing and performance optimization SDK for Next.js",
+  "version": "1.1.2",
+  "description": "SEO, routing, performance optimization and backend utilities SDK for Next.js",
   "author": "Rohit Kumar Kundu",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
@@ -20,8 +22,10 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Tests coming soon\" && exit 0"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "next": ">=12",
@@ -29,9 +33,15 @@
     "react-dom": ">=17"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   },
   "keywords": [
@@ -46,6 +56,13 @@
     "react",
     "meta-tags",
     "json-ld",
-    "prefetch"
+    "prefetch",
+    "middleware",
+    "api-routes",
+    "backend",
+    "caching",
+    "rate-limiting",
+    "cors",
+    "express"
   ]
 }

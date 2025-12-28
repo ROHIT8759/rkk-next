@@ -17,3 +17,8 @@ export * from "./performance/securityHeaders";
 
 // Analytics
 export * from "./analytics/webVitals";
+
+// Backend
+export * from "./backend/middleware";
+export * from "./backend/cache";
+export * from "./backend/optimization";

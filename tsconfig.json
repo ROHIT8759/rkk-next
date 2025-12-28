@@ -5,13 +5,22 @@
     "declaration": true,
     "emitDeclarationOnly": false,
     "outDir": "dist",
-    "rootDir": ".",
+    "rootDir": "src",
     "moduleResolution": "node",
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["index.ts", "seo/**/*", "routing/**/*", "performance/**/*", "analytics/**/*"],
-  "exclude": ["node_modules", "dist", "examples"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "examples",
+    "__tests__",
+    "__mocks__",
+    "coverage",
+    "cli"
+  ]
 }
